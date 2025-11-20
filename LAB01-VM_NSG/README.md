@@ -1,20 +1,78 @@
-Project 1 – Deploy a secure Windows VM in Azure
-Goal: Provide a VM accessible via RDP while blocking all other inbound traffic.
+🌐 LAB 01 — Secure Azure VM with NSG
 
-✔️ Steps Completed
+🎯 Goal
 
-Created a Resource Group
+Deploy a Windows Server VM that is only accessible via RDP (TCP/3389), while blocking all other inbound traffic using an NSG (Network Security Group).
 
-Deployed a Windows Server VM (no open inbound ports)
+🛠 Steps Performed
+1️⃣ Create Resource Group
 
-Created a Network Security Group (NSG)
+Name: rg-level1-project1
 
-Associated the NSG with the VM’s NIC
+Region: West Europe
 
-Configured inbound rules:
+<img width="992" height="506" alt="image" src="https://github.com/user-attachments/assets/d5a3d041-9191-4d6c-81f1-6a2eff3e3409" />
 
-Allow TCP/3389 (RDP)
+--------------------------------------------------
+2️⃣ Deploy Virtual Machine
 
-Deny all other inbound traffic
+Name: vm-level1
 
-Tested RDP successfully
+Image: Windows Server
+
+No inbound ports
+
+<img width="1867" height="495" alt="image" src="https://github.com/user-attachments/assets/c1d2e988-1e73-449d-a442-0e45fc946d01" />
+
+--------------------------------------------------
+3️⃣ Create Network Security Group
+
+Name: nsg-level1
+
+<img width="1203" height="142" alt="image" src="https://github.com/user-attachments/assets/fb9daff5-8a4e-4f1f-9580-91c75e028294" />
+
+--------------------------------------------------
+4️⃣ Associate NSG to VM's NIC
+
+<img width="1336" height="559" alt="image" src="https://github.com/user-attachments/assets/7d1fa0c6-45a4-4e59-8af9-c781f7638ee4" />
+
+--------------------------------------------------
+5️⃣ Configure NSG Inbound Rules
+
+Allow 3389 (priority 100)
+
+Deny all inbound (priority 4000)
+
+<img width="1331" height="499" alt="image" src="https://github.com/user-attachments/assets/7d834616-5835-4224-b9e8-ef4f6d01a3b7" />
+
+--------------------------------------------------
+6️⃣ Test RDP
+
+<img width="1376" height="816" alt="image" src="https://github.com/user-attachments/assets/ab22bb98-8fb8-4323-a241-0558f851d01f" />
+
+
+--------------------------------------------------
+✔️ Result
+
+A fully secured Azure VM where:
+
+  -RDP works
+
+  -All other inbound traffic is blocked
+
+  -NSG is correctly applied at NIC level
+  
+--------------------------------------------------
+📚 Skills Learned
+
+  -Azure VM deployment
+
+  -NSG firewall basics
+
+  -Prioritizing rules
+
+  -Public IP configuration
+
+  -NIC & VNet fundamentals
+
+  -RDP connectivity troubleshooting
