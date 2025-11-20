@@ -1,8 +1,15 @@
 🌐 LAB 01 — Secure Azure VM with NSG
 
-🎯 Goal
+## 🌍 Scenario
 
-Deploy a Windows Server VM that is only accessible via RDP (TCP/3389), while blocking all other inbound traffic using an NSG (Network Security Group).
+You are tasked with deploying a Windows Server VM that must remain secure and isolated.  
+To follow best practices for Infrastructure/Cloud administration, the VM must:
+
+1. Be reachable **only via RDP** (TCP/3389) for remote management.
+2. Block **all other inbound traffic** using a Network Security Group (NSG).
+3. Demonstrate basic Azure VM deployment and firewall configuration.
+4. Follow the principle of **least privilege** by exposing only the minimum required port.
+--------------------------------------------------
 
 🛠 Steps Performed
 1️⃣ Create Resource Group
