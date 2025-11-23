@@ -96,5 +96,42 @@ Verify that the DNAT rule was actually used.
 
 <img width="1599" height="371" alt="image" src="https://github.com/user-attachments/assets/14bbce39-f63f-4341-84ea-4ca9fabeb5a9" />
 
+---
+
+## 🎉 Results
+
+By the end of this mini-lab, I successfully achieved:
+
+- ✔️ RDP access to an internal VM **without a Public IP**
+- ✔️ Fully functional **DNAT rule** on Azure Firewall  
+  (FW-Public-IP:50001 → VM-Private-IP:3389)
+- ✔️ Verified the DNAT traffic flow through Azure Firewall using **Log Analytics**
+- ✔️ Confirmed proper **Firewall Policy** configuration and rule ordering
+- ✔️ Corrected diagnostic settings to ensure **DNAT logs** were properly collected
+- ✔️ Demonstrated a secure way to expose internal workloads through a firewall
+
+This lab successfully reproduces a real-world hub-and-spoke scenario  
+used in enterprise Azure environments.
+
+---
+
+## 📘 What I Learned
+
+Here are the main insights I gained during this lab:
+
+- 🔹 **How DNAT works** inside Azure Firewall and why it is essential for secure inbound access  
+- 🔹 The difference between **DNAT rules**, **Network rules**, and **Application rules**
+- 🔹 Why internal VMs should **not** have Public IPs in secure architectures
+- 🔹 How to properly configure the **Firewall Policy** and avoid rule conflicts
+- 🔹 That Azure Firewall does *not* log anything by default —  
+  **diagnostic settings must be configured correctly**  
+- 🔹 How to enable and use **Log Analytics Workspace** to analyze firewall traffic
+- 🔹 How to troubleshoot missing firewall logs (legacy vs modern categories)
+- 🔹 How to test real inbound flows from an external machine using `FW-Public-IP:50001`
+
+Overall, this lab gave me a deeper understanding of  
+**secure inbound connectivity**, **Azure Firewall behavior**, and  
+**real-world troubleshooting** in Azure networking.
+
 
 
