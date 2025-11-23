@@ -88,7 +88,49 @@ I repeatedly received the following error:
 
 This issue was related to the fact that my VM’s outbound traffic was not yet correctly routed through the Azure Firewall, and the necessary firewall rules were not configured at that moment.
 
-I will document **how this issue was identified and resolved** in a separate page
+I will document **how this issue was identified and resolved** in a separate page.
+
+After fixing the routing issue (details documented on the *Troubleshooting – RDP Issue* page), I was able to successfully RDP back into my VM.
+
+From that point on:
+
+- Outbound rules through the Azure Firewall worked as expected  
+- HTTPS traffic was allowed  
+- All validation tests for Mini-Lab 2 were successful  
+
+✅ **Conclusion:**  
+The connectivity issue was resolved, and Mini-Lab 2 was fully completed without further problems.
+
+---
+## 🎓 What I Learned
+
+This mini-lab helped me understand several key Azure Firewall and routing concepts:
+
+### 🔹 1. How outbound traffic flows through the Azure Firewall  
+I now understand how a firewall sitting in a dedicated subnet (AzureFirewallSubnet) inspects and controls outbound L3/L4 traffic using Network Rules.
+
+### 🔹 2. Why User-Defined Routes (UDRs) are required  
+Without a UDR pointing `0.0.0.0/0 → Firewall`, the VM would bypass the firewall and go directly to the Internet.  
+The lab showed me how to enforce traffic through the firewall using UDRs.
+
+### 🔹 3. How to troubleshoot RDP failures caused by routing  
+I learned that:
+- A default route (`0.0.0.0/0`) to the firewall forces *all* traffic through the firewall  
+- The firewall blocks inbound RDP unless DNAT rules exist  
+- Therefore, applying a UDR can unintentionally break RDP  
+
+I now fully understand why RDP timed out and how to fix it (either remove the UDR temporarily or configure DNAT).
+
+
+### 🔹 4. Real-world enterprise firewall design basics  
+I gained hands-on experience with:
+- Firewall policies  
+- Rule collections  
+- Network rules  
+- Default routes  
+- Troubleshooting network flows  
+
+These are core skills for real Azure networking and security designs.
 
 ---
 
